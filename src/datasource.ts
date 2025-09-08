@@ -12,9 +12,16 @@ export class DataSource extends DataSourceWithBackend<MyQuery, MyDataSourceOptio
     return DEFAULT_QUERY;
   }
 
-  applyTemplateVariables(query: MyQuery, scopedVars: ScopedVars) {
+  applyTemplateVariables(query: MyQuery) {
     return {
-      ...query
+      ...query,
+      orgId: getTemplateSrv().replace(query.orgId, {}),
+      envId: getTemplateSrv().replace(query.envId, {}),
+      clusterId: getTemplateSrv().replace(query.clusterId, {}),
+      appId: getTemplateSrv().replace(query.appId, {}),
+      metricName: getTemplateSrv().replace(query.metricName, {}),
+      metricTable: getTemplateSrv().replace(query.metricTable, {}),
+      timeStep: getTemplateSrv().replace(query.timeStep, {}),
     };
   }
 
