@@ -1,0 +1,13 @@
+apiVersion: 1
+
+datasources:
+  - name: "AnypointMonitoring"
+    type: "weastie-anypointmonitoring-datasource"
+    access: proxy
+    isDefault: false
+    orgId: 1
+    version: 1
+    editable: true
+    secureJsonData:
+      clientId: "clientId"
+      clientSecret: "clientSecret"
